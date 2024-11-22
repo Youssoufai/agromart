@@ -13,6 +13,7 @@ export default {
         foreground: "var(--foreground)",
         "color": "#11132A",
         "color2": "#343434",
+        "color3": "#108A00"
       },
     },
   },
