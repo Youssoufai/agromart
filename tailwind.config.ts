@@ -15,6 +15,9 @@ export default {
         "color2": "#343434",
         "color3": "#108A00"
       },
+      fontFamily: {
+        'parkinsans': ['Parkinsans', 'sans-serif'],
+      },
     },
   },
   plugins: [],
