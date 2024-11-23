@@ -19,7 +19,7 @@ const Hero = () => {
                 </div>
                 <div className="flex-1">
                     <img
-                        src="hero.avif"
+                        src="hero.webp"
                         className="rounded-lg shadow-2xl w-full object-cover"
                         alt="Farmers working in field"
                     />
