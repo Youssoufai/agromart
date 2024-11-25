@@ -1,6 +1,7 @@
 import Navbar from "@/app/components/navbar";
 import Hero from "./components/hero";
 import About from "./components/about";
+import Features from "./components/features";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <About />
+        <Features />
       </div>
     </>
   );

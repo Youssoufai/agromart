@@ -9,14 +9,14 @@ const About = () => {
                             Our mission at the AgroMart is to revolutionize agriculture in Nigeria and across Africa by empowering farmers, making food more affordable and healthier, and connecting businesses with reliable sources of raw materials. By leveraging technology, we aim to boost agricultural productivity, reduce food waste, and create sustainable supply chains. This will not only enhance the livelihoods of farmers but also support economic growth, ensure food security, and contribute to a healthier, more prosperous continent.
                         </p>
                     </div>
-                    <div className="flex flex-col justify-center flex-1">
-                        <div className="w-full">
+                    <div className="flex flex-col justify-center flex-1 overflow-hidden">
+                        <div className="w-full mt-24 ml-24">
                             <img src="ai-gen1.webp" className="rounded-full object-cover w-[200px] h-[200px]" alt="" />
                         </div>
-                        <div className="w-full flex items-start justify-end">
+                        <div className="w-full flex items-start justify-end mb-5">
                             <img src="company.webp" className="rounded-full object-cover w-[200px] h-[200px]" alt="" />
                         </div>
-                        <div className="w-full">
+                        <div className="w-full -mt-24 ml-24 mb-48">
                             <img src="about.webp" className="rounded-full object-cover w-[200px] h-[200px]" alt="" />
                         </div>
                     </div>
