@@ -51,7 +51,7 @@ const Value = () => {
                         <input
                             type="text"
                             placeholder="Enter your name"
-                            className="w-[500px] pl-10 pr-4 py-2 placeholder:text-color border rounded-lg text-color focus:outline-color3 focus:ring-2 focus:ring-color3"
+                            className="w-[450px] pl-10 pr-4 py-2 placeholder:text-color border rounded-lg text-color focus:outline-color3 focus:ring-2 focus:ring-color3"
                         />
                     </section>
 
@@ -60,7 +60,7 @@ const Value = () => {
                         <input
                             type="email"
                             placeholder="Enter your email"
-                            className="w-[500px] pl-10 pr-4 py-2 border placeholder:text-color rounded-lg text-color focus:outline-color3 focus:ring-2 focus:ring-color3"
+                            className="w-[450px] pl-10 pr-4 py-2 border placeholder:text-color rounded-lg text-color focus:outline-color3 focus:ring-2 focus:ring-color3"
                         />
                     </section>
 
@@ -69,7 +69,7 @@ const Value = () => {
                         <input
                             type="tel"
                             placeholder="Enter your phone number"
-                            className="w-[500px] pl-10 pr-4 py-2 border placeholder:text-color rounded-lg text-color focus:outline-color3 focus:ring-2 focus:ring-color3"
+                            className="w-[450px] pl-10 pr-4 py-2 border placeholder:text-color rounded-lg text-color focus:outline-color3 focus:ring-2 focus:ring-color3"
                         />
                     </section>
 
@@ -77,7 +77,7 @@ const Value = () => {
                         <BsBuilding className="absolute left-3 top-1/2 transform -translate-y-1/2 text-color3" />
                         <select
                             defaultValue=""
-                            className="w-[500px] pl-10 pr-4 py-2 border rounded-lg text-color placeholder:text-color focus:outline-color3 focus:ring-2 focus:ring-color3 bg-white"
+                            className="w-[450px] pl-10 pr-4 py-2 border rounded-lg text-color placeholder:text-color focus:outline-color3 focus:ring-2 focus:ring-color3 bg-white"
                         >
                             <option value="" disabled>Select your category</option>
                             <option value="farmer">Farmer</option>
@@ -86,7 +86,7 @@ const Value = () => {
                         </select>
                     </section>
                     <div>
-                        <button className="bg-color3 px-36 py-2 rounded-md text-white flex items-center justify-center gap-2">
+                        <button className="bg-color3 px-48 py-2 rounded-md text-white flex items-center justify-center gap-2">
                             Join Our Waitlist
                             <FaArrowRight />
                         </button>
