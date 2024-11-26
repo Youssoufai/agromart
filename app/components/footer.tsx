@@ -1,10 +1,13 @@
+import { AiFillTikTok } from "react-icons/ai";
+import { BsInstagram } from "react-icons/bs";
 import { FaArrowRight, FaEnvelope } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
     return (
         <>
-            <section className="bg-[#F2F5FA] h-screen p-7">
-                <section className="flex flex-col items-center justify-center h-full max-w-4xl mx-auto space-y-8">
+            <section className="bg-[#F2F5FA] h-full p-7">
+                <section className="flex flex-col h-screen items-center justify-center max-w-4xl mx-auto space-y-8">
                     <div className="text-center">
                         <h1 className="text-4xl mb-4">Subscribe To Our <span className="text-color3">Newsletter</span></h1>
                         <p className="text-gray-600 mb-8 max-w-2xl">
@@ -29,9 +32,23 @@ const Footer = () => {
                         </button>
                     </div>
                 </section>
-                <section>
-                    <div>
-                        2024 All Rights Reserved.
+                <section className="mt-20 border-t border-gray-200 py-8">
+                    <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div className="text-gray-600 text-sm">
+                            © 2024 All Rights Reserved.
+                        </div>
+                        <div>
+                            <ul className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+                                <li className="hover:text-color3 cursor-pointer transition-colors">How it Works</li>
+                                <li className="hover:text-color3 cursor-pointer transition-colors">Blog</li>
+                                <li className="hover:text-color3 cursor-pointer transition-colors">Contact</li>
+                            </ul>
+                        </div>
+                        <div className="flex items-center gap-4 text-gray-600">
+                            <BsInstagram className="w-5 h-5 hover:text-color3 cursor-pointer transition-colors" />
+                            <FaXTwitter className="w-5 h-5 hover:text-color3 cursor-pointer transition-colors" />
+                            <AiFillTikTok className="w-5 h-5 hover:text-color3 cursor-pointer transition-colors" />
+                        </div>
                     </div>
                 </section>
             </section>
