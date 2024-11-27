@@ -105,8 +105,6 @@ const Footer = () => {
                     </motion.button>
                 </motion.div>
             </motion.section>
-
-            {/* Footer Links Section */}
             <motion.section
                 variants={containerVariants}
                 initial="hidden"
@@ -115,15 +113,12 @@ const Footer = () => {
                 className="mt-12 md:mt-20 border-t border-gray-200 py-6 md:py-8"
             >
                 <div className="max-w-4xl mx-auto px-4 flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between items-center">
-                    {/* Copyright */}
                     <motion.div
                         variants={itemVariants}
                         className="text-gray-600 text-sm order-3 md:order-1"
                     >
                         © 2024 All Rights Reserved.
                     </motion.div>
-
-                    {/* Navigation Links */}
                     <motion.div
                         variants={itemVariants}
                         className="order-1 md:order-2"

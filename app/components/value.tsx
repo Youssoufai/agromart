@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { BsBuilding } from "react-icons/bs";
 import { FaArrowRight, FaEnvelope, FaPhone, FaUser } from "react-icons/fa";
-
 const Value = () => {
     const formFields = [
         {
