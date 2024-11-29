@@ -59,7 +59,7 @@ const About = () => {
                 </motion.div>
 
                 <div className="w-full md:w-1/2 relative h-[400px] md:h-[600px]">
-                    {/* Top image */}
+
                     <motion.div
                         initial={{ opacity: 0, y: -50 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ const About = () => {
                         />
                     </motion.div>
 
-                    {/* Middle image */}
+
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -99,7 +99,7 @@ const About = () => {
                         />
                     </motion.div>
 
-                    {/* Bottom image */}
+
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}

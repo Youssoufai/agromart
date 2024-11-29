@@ -22,9 +22,9 @@ const Hero = () => {
                         transition={{ duration: 0.5, delay: 0.5 }}
                         className="text-color3"
                     >
-                        Farmers
+                        Farmers,
                     </motion.span>,
-                    Supplying Businesses{' '}
+                    Supplying Businesses{' '},
                     <span className="hidden md:inline">
                         <br />
                     </span>
@@ -44,7 +44,7 @@ const Hero = () => {
                     transition={{ duration: 0.7, delay: 0.4 }}
                     className="text-gray-600 text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed"
                 >
-                    At AgriTech Marketplace, we are dedicated to bridging the gap between farms, businesses, and individuals
+                    At AgroMart, An AgriTech Marketplace, we are dedicated to bridging the gap between farms, businesses, and individuals
                     making it easier for everyone to access quality and affordable agricultural products.
                 </motion.p>
 
