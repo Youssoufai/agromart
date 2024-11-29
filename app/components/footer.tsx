@@ -77,7 +77,7 @@ const Footer = () => {
                         variants={itemVariants}
                         className="text-sm md:text-base text-gray-600 mb-6 md:mb-8 max-w-2xl"
                     >
-                        Stay connected with the latest updates, exclusive offers, and valuable insights! Subscribe to our newsletter and be the first to know about new features, market trends, and opportunities that can benefit you. Join our community and never miss out on what's happening in the world of agriculture and innovation.
+                        Stay connected with the latest updates, exclusive offers, and valuable insights! Subscribe to our newsletter and be the first to know about new features, market trends, and opportunities that can benefit you. Join our community and never miss out on what&apos;s happening in the world of agriculture and innovation.
                     </motion.p>
                 </motion.div>
 
@@ -131,7 +131,7 @@ const Footer = () => {
                         variants={itemVariants}
                         className="text-gray-600 text-sm order-3 md:order-1"
                     >
-                        © 2024 All Rights Reserved.
+                        2024 All Rights Reserved.
                     </motion.div>
                     <motion.div
                         variants={itemVariants}
