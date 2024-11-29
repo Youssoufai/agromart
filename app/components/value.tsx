@@ -8,11 +8,11 @@ import { createList } from "@/actions";
 const Value = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [message, setMessage] = useState("");
-    const [success, setSuccess] = useState(false); // New state for success message
+    const [success, setSuccess] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsSubmitting(true); // Set submitting state to true
+        setIsSubmitting(true);
         const form = e.currentTarget as HTMLFormElement;
         const nameInput = form.elements.namedItem('name') as HTMLInputElement | null;
         const emailInput = form.elements.namedItem('email') as HTMLInputElement | null;
@@ -21,8 +21,8 @@ const Value = () => {
 
         if (!nameInput || !emailInput || !phoneInput || !categoryInput) {
             console.error("One or more form fields are missing.");
-            setIsSubmitting(false); // Reset submitting state
-            return; // Exit the function if any field is missing
+            setIsSubmitting(false);
+            return;
         }
 
         const formData = {
@@ -32,20 +32,20 @@ const Value = () => {
             category: categoryInput.value,
         };
 
-        // Pass formData to createList
+
         try {
             await createList(formData);
-            setSuccess(true); // Set success state to true
-            setMessage("Successfully joined the waitlist!"); // Set success message
+            setSuccess(true);
+            setMessage("Successfully joined the waitlist!");
         } catch (error) {
             console.error("Error joining the waitlist:", error);
             setSuccess(false);
             setMessage("Failed to join the waitlist. Please try again.");
         } finally {
-            setIsSubmitting(false); // Reset submitting state after completion
+            setIsSubmitting(false);
         }
 
-        // Clear the message after a few seconds
+
         setTimeout(() => {
             setMessage("");
             setSuccess(false);
@@ -159,7 +159,7 @@ const Value = () => {
                     </motion.p>
                 </motion.div>
 
-                <form onSubmit={handleSubmit}> {/* Attach handleSubmit here */}
+                <form onSubmit={handleSubmit}>
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
@@ -179,11 +179,11 @@ const Value = () => {
                                 {field.inputType === "input" ? (
                                     <motion.input
                                         type={field.type}
-                                        name={field.name} // Use the correct name attribute
+                                        name={field.name}
                                         placeholder={field.placeholder}
                                         className="w-full pl-10 pr-4 py-2 md:py-3 placeholder:text-color border rounded-lg text-color focus:outline-color3 focus:ring-2 focus:ring-color3"
                                         whileFocus={{ scale: 1.02 }}
-                                        disabled={isSubmitting} // Disable when submitting
+                                        disabled={isSubmitting}
                                     />
                                 ) : (
                                     <motion.select
