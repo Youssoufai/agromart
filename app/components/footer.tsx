@@ -138,7 +138,7 @@ const Footer = () => {
                         className="order-1 md:order-2"
                     >
                         <ul className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-gray-600">
-                            {navLinks.map((link, index) => (
+                            {navLinks.map((link) => (
                                 <motion.li
                                     key={link}
                                     whileHover={{ scale: 1.1, color: "var(--color3)" }}

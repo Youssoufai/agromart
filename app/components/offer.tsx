@@ -49,7 +49,7 @@ const Offer = () => {
                 </svg>
             ),
             title: "Affordable Food for Healthier Living: A Win for Consumers",
-            description: "Consumers, it’s time to enjoy fresh, healthy food without worrying about the price tag. Through our platform, you get direct access to affordable, farm-fresh produce, eliminating extra costs and ensuring unbeatable quality. Whether you're shopping for your family or sourcing for your business, our focus on affordability and quality guarantees you’re always getting the best value for your money."
+            description: "Consumers, it&apos;s time to enjoy fresh, healthy food without worrying about the price tag. Through our platform, you get direct access to affordable, farm-fresh produce, eliminating extra costs and ensuring unbeatable quality. Whether you're shopping for your family or sourcing for your business, our focus on affordability and quality guarantees you&apos;re always getting the best value for your money."
         }
     ];
 
