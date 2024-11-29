@@ -4,8 +4,10 @@ import { AiFillTikTok } from "react-icons/ai";
 import { BsInstagram } from "react-icons/bs";
 import { FaArrowRight, FaEnvelope } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { useState } from "react";
 
 const Footer = () => {
+    const [email, setEmail] = useState(""); // State to manage email input
     const navLinks = ["How it Works", "Blog", "Contact"];
     const socialIcons = [
         { Icon: BsInstagram, href: "#", label: "Instagram" },
@@ -30,6 +32,13 @@ const Footer = () => {
             y: 0,
             transition: { duration: 0.5 }
         }
+    };
+
+    const handleSubscribe = () => {
+        // Add your subscription logic here
+        console.log("Subscribed with email:", email);
+        // Reset email input after subscription
+        setEmail("");
     };
 
     return (
@@ -86,6 +95,8 @@ const Footer = () => {
                                 whileFocus={{ scale: 1.02 }}
                                 type="email"
                                 placeholder="Enter your email"
+                                value={email} // Bind email state
+                                onChange={(e) => setEmail(e.target.value)} // Update email state
                                 className="w-full pl-10 pr-4 py-3 border placeholder:text-gray-400 rounded-lg text-color focus:outline-color3 focus:ring-2 focus:ring-color3"
                                 required // Added required attribute for validation
                             />
@@ -94,6 +105,7 @@ const Footer = () => {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
+                        onClick={handleSubscribe} // Call subscribe function
                         className="w-full sm:w-auto bg-color3 px-8 py-3 rounded-lg text-white flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all"
                     >
                         Subscribe
@@ -153,6 +165,7 @@ const Footer = () => {
                                 }}
                                 transition={{ duration: 0.3 }}
                                 aria-label={`Follow us on ${label}`} // Use the label from the mapping
+                                tabIndex={0} // Make it keyboard navigable
                             >
                                 <Icon className="w-5 h-5 cursor-pointer" />
                             </motion.div>
