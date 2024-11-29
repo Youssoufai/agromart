@@ -14,18 +14,12 @@ if (!client) {
 
 const db = client.db('waitlist');
 
-export const createList = async (data: ListData) => {
-    const response = await fetch('/api/joinWaitlist', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-        throw new Error('Failed to join the waitlist');
+export async function createList(data: ListData) { // Specify the type for data
+    try {
+        const list = await db.collection('list').insertOne(data); // Ensure to await the insertOne operation
+        console.log(list)
+        revalidatePath('/')
+    } catch (error) {
+        console.error(error);
     }
-
-    return await response.json();
-};
+}

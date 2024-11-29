@@ -3,38 +3,16 @@ import { motion } from "framer-motion";
 import { BsBuilding } from "react-icons/bs";
 import { FaArrowRight, FaEnvelope, FaPhone, FaUser } from "react-icons/fa";
 import { useState } from "react";
-
-interface ListData {
-    name: string;
-    email: string;
-    phone: string;
-    category: string;
-}
-
-const createList = async (data: ListData) => {
-    const response = await fetch('/api/joinWaitlist', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-        throw new Error('Failed to join the waitlist');
-    }
-
-    return await response.json();
-};
+import { createList } from "@/actions";
 
 const Value = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [message, setMessage] = useState("");
-    const [success, setSuccess] = useState(false);
+    const [success, setSuccess] = useState(false); // New state for success message
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsSubmitting(true);
+        setIsSubmitting(true); // Set submitting state to true
         const form = e.currentTarget as HTMLFormElement;
         const nameInput = form.elements.namedItem('name') as HTMLInputElement | null;
         const emailInput = form.elements.namedItem('email') as HTMLInputElement | null;
@@ -43,8 +21,8 @@ const Value = () => {
 
         if (!nameInput || !emailInput || !phoneInput || !categoryInput) {
             console.error("One or more form fields are missing.");
-            setIsSubmitting(false);
-            return;
+            setIsSubmitting(false); // Reset submitting state
+            return; // Exit the function if any field is missing
         }
 
         const formData = {
@@ -54,29 +32,25 @@ const Value = () => {
             category: categoryInput.value,
         };
 
+        // Pass formData to createList
         try {
-            const response = await createList(formData);
-            setSuccess(true);
-            setMessage(response.message); // Use the message from the API response
-
-            // Reset form fields
-            nameInput.value = '';
-            emailInput.value = '';
-            phoneInput.value = '';
-            categoryInput.value = '';
+            await createList(formData);
+            setSuccess(true); // Set success state to true
+            setMessage("Successfully joined the waitlist!");
         } catch (error) {
-            console.error("Error joining the waitlist:", error); // Log the error
+            console.error("Error joining the waitlist:", error);
             setSuccess(false);
             setMessage("Failed to join the waitlist. Please try again.");
         } finally {
             setIsSubmitting(false);
         }
 
+
         setTimeout(() => {
             setMessage("");
             setSuccess(false);
         }, 3000);
-    };
+    }
 
     const formFields = [
         {
@@ -84,24 +58,21 @@ const Value = () => {
             type: "text",
             placeholder: "Enter your name",
             inputType: "input",
-            name: 'name',
-            label: "Name" // Added label
+            name: 'name'
         },
         {
             icon: <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-color3" />,
             type: "email",
             placeholder: "Enter your email",
             inputType: "input",
-            name: 'email',
-            label: "Email" // Added label
+            name: 'email'
         },
         {
             icon: <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-color3" />,
             type: "tel",
             placeholder: "Enter your phone number",
             inputType: "input",
-            name: 'phone',
-            label: "Phone Number" // Added label
+            name: 'phone'
         },
         {
             icon: <BsBuilding className="absolute left-3 top-1/2 transform -translate-y-1/2 text-color3" />,
@@ -109,7 +80,6 @@ const Value = () => {
             placeholder: "Select your category",
             inputType: "select",
             name: 'category',
-            label: "Category", // Added label
             options: [
                 { value: "farmer", label: "Farmer" },
                 { value: "consumer", label: "Consumer/Family" },
@@ -205,28 +175,23 @@ const Value = () => {
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >
-                                <label htmlFor={field.name} className="sr-only">{field.label}</label> {/* Added label for accessibility */}
                                 {field.icon}
                                 {field.inputType === "input" ? (
                                     <motion.input
                                         type={field.type}
                                         name={field.name}
-                                        id={field.name} // Added id for accessibility
                                         placeholder={field.placeholder}
                                         className="w-full pl-10 pr-4 py-2 md:py-3 placeholder:text-color border rounded-lg text-color focus:outline-color3 focus:ring-2 focus:ring-color3"
                                         whileFocus={{ scale: 1.02 }}
                                         disabled={isSubmitting}
-                                        required // Added required attribute for validation
                                     />
                                 ) : (
                                     <motion.select
                                         name={field.name}
-                                        id={field.name} // Added id for accessibility
                                         defaultValue=""
                                         className="w-full pl-10 pr-4 py-2 md:py-3 border rounded-lg text-color placeholder:text-color focus:outline-color3 focus:ring-2 focus:ring-color3 bg-white"
                                         whileFocus={{ scale: 1.02 }}
                                         disabled={isSubmitting}
-                                        required // Added required attribute for validation
                                     >
                                         <option value="" disabled>{field.placeholder}</option>
                                         {field.options?.map(option => (
@@ -259,6 +224,7 @@ const Value = () => {
                                 </motion.span>
                             </motion.button>
                         </motion.div>
+
 
                         {message && (
                             <motion.div
