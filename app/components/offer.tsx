@@ -1,6 +1,5 @@
 "use client"
 import { motion } from "framer-motion";
-import { FaHandshake, FaWarehouse } from "react-icons/fa";
 
 const Offer = () => {
     const offers = [

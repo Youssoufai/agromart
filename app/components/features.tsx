@@ -1,9 +1,6 @@
 "use client"
 import { motion } from "framer-motion";
-import { BiWorld } from "react-icons/bi";
 import { CiDeliveryTruck } from "react-icons/ci";
-import { FaHandshake, FaWarehouse } from "react-icons/fa";
-import { GiFoodChain, GiFoodTruck } from "react-icons/gi";
 
 const Features = () => {
     const features = [
