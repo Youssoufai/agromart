@@ -3,7 +3,29 @@ import { motion } from "framer-motion";
 import { BsBuilding } from "react-icons/bs";
 import { FaArrowRight, FaEnvelope, FaPhone, FaUser } from "react-icons/fa";
 import { useState } from "react";
-import { createList } from "@/actions";
+
+interface ListData {
+    name: string;
+    email: string;
+    phone: string;
+    category: string;
+}
+
+const createList = async (data: ListData) => {
+    const response = await fetch('/api/joinWaitlist', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to join the waitlist');
+    }
+
+    return await response.json();
+};
 
 const Value = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,9 +55,9 @@ const Value = () => {
         };
 
         try {
-            await createList(formData);
+            const response = await createList(formData);
             setSuccess(true);
-            setMessage("Successfully joined the waitlist!");
+            setMessage(response.message); // Use the message from the API response
 
             // Reset form fields
             nameInput.value = '';
@@ -54,7 +76,8 @@ const Value = () => {
             setMessage("");
             setSuccess(false);
         }, 3000);
-    }
+    };
+
     const formFields = [
         {
             icon: <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-color3" />,
