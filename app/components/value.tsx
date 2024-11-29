@@ -1,32 +1,85 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
 import { BsBuilding } from "react-icons/bs";
 import { FaArrowRight, FaEnvelope, FaPhone, FaUser } from "react-icons/fa";
+import { useState } from "react";
+import { createList } from "@/actions";
+
 const Value = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [message, setMessage] = useState("");
+    const [success, setSuccess] = useState(false); // New state for success message
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsSubmitting(true); // Set submitting state to true
+        const form = e.currentTarget as HTMLFormElement;
+        const nameInput = form.elements.namedItem('name') as HTMLInputElement | null;
+        const emailInput = form.elements.namedItem('email') as HTMLInputElement | null;
+        const phoneInput = form.elements.namedItem('phone') as HTMLInputElement | null;
+        const categoryInput = form.elements.namedItem('category') as HTMLSelectElement | null;
+
+        if (!nameInput || !emailInput || !phoneInput || !categoryInput) {
+            console.error("One or more form fields are missing.");
+            setIsSubmitting(false); // Reset submitting state
+            return; // Exit the function if any field is missing
+        }
+
+        const formData = {
+            name: nameInput.value,
+            email: emailInput.value,
+            phone: phoneInput.value,
+            category: categoryInput.value,
+        };
+
+        // Pass formData to createList
+        try {
+            await createList(formData);
+            setSuccess(true); // Set success state to true
+            setMessage("Successfully joined the waitlist!"); // Set success message
+        } catch (error) {
+            console.error("Error joining the waitlist:", error);
+            setSuccess(false);
+            setMessage("Failed to join the waitlist. Please try again.");
+        } finally {
+            setIsSubmitting(false); // Reset submitting state after completion
+        }
+
+        // Clear the message after a few seconds
+        setTimeout(() => {
+            setMessage("");
+            setSuccess(false);
+        }, 3000);
+    }
+
     const formFields = [
         {
             icon: <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-color3" />,
             type: "text",
             placeholder: "Enter your name",
-            inputType: "input"
+            inputType: "input",
+            name: 'name'
         },
         {
             icon: <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-color3" />,
             type: "email",
             placeholder: "Enter your email",
-            inputType: "input"
+            inputType: "input",
+            name: 'email'
         },
         {
             icon: <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-color3" />,
             type: "tel",
             placeholder: "Enter your phone number",
-            inputType: "input"
+            inputType: "input",
+            name: 'phone'
         },
         {
             icon: <BsBuilding className="absolute left-3 top-1/2 transform -translate-y-1/2 text-color3" />,
             type: "select",
             placeholder: "Select your category",
             inputType: "select",
+            name: 'category',
             options: [
                 { value: "farmer", label: "Farmer" },
                 { value: "consumer", label: "Consumer/Family" },
@@ -106,65 +159,86 @@ const Value = () => {
                     </motion.p>
                 </motion.div>
 
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="flex items-center flex-col space-y-6 md:space-y-8 px-4"
-                >
-                    {formFields.map((field, index) => (
-                        <motion.section
-                            key={field.placeholder}
-                            variants={itemVariants}
-                            className="relative w-full"
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                        >
-                            {field.icon}
-                            {field.inputType === "input" ? (
-                                <motion.input
-                                    type={field.type}
-                                    placeholder={field.placeholder}
-                                    className="w-full pl-10 pr-4 py-2 md:py-3 placeholder:text-color border rounded-lg text-color focus:outline-color3 focus:ring-2 focus:ring-color3"
-                                    whileFocus={{ scale: 1.02 }}
-                                />
-                            ) : (
-                                <motion.select
-                                    defaultValue=""
-                                    className="w-full pl-10 pr-4 py-2 md:py-3 border rounded-lg text-color placeholder:text-color focus:outline-color3 focus:ring-2 focus:ring-color3 bg-white"
-                                    whileFocus={{ scale: 1.02 }}
-                                >
-                                    <option value="" disabled>{field.placeholder}</option>
-                                    {field.options?.map(option => (
-                                        <option key={option.value} value={option.value}>
-                                            {option.label}
-                                        </option>
-                                    ))}
-                                </motion.select>
-                            )}
-                        </motion.section>
-                    ))}
-
+                <form onSubmit={handleSubmit}> {/* Attach handleSubmit here */}
                     <motion.div
-                        variants={itemVariants}
-                        className="w-full"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="flex items-center flex-col space-y-6 md:space-y-8 px-4"
                     >
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="w-full bg-color3 py-2 md:py-3 rounded-md text-white flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all"
-                        >
-                            Join Our Waitlist
-                            <motion.span
-                                animate={{ x: [0, 5, 0] }}
-                                transition={{ repeat: Infinity, duration: 1.5 }}
+                        {formFields.map((field) => (
+                            <motion.section
+                                key={field.placeholder}
+                                variants={itemVariants}
+                                className="relative w-full"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                             >
-                                <FaArrowRight />
-                            </motion.span>
-                        </motion.button>
+                                {field.icon}
+                                {field.inputType === "input" ? (
+                                    <motion.input
+                                        type={field.type}
+                                        name={field.name} // Use the correct name attribute
+                                        placeholder={field.placeholder}
+                                        className="w-full pl-10 pr-4 py-2 md:py-3 placeholder:text-color border rounded-lg text-color focus:outline-color3 focus:ring-2 focus:ring-color3"
+                                        whileFocus={{ scale: 1.02 }}
+                                        disabled={isSubmitting} // Disable when submitting
+                                    />
+                                ) : (
+                                    <motion.select
+                                        name={field.name}
+                                        defaultValue=""
+                                        className="w-full pl-10 pr-4 py-2 md:py-3 border rounded-lg text-color placeholder:text-color focus:outline-color3 focus:ring-2 focus:ring-color3 bg-white"
+                                        whileFocus={{ scale: 1.02 }}
+                                        disabled={isSubmitting}
+                                    >
+                                        <option value="" disabled>{field.placeholder}</option>
+                                        {field.options?.map(option => (
+                                            <option key={option.value} value={option.value}>
+                                                {option.label}
+                                            </option>
+                                        ))}
+                                    </motion.select>
+                                )}
+                            </motion.section>
+                        ))}
+
+                        <motion.div
+                            variants={itemVariants}
+                            className="w-full"
+                        >
+                            <motion.button
+                                type="submit"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="w-full bg-color3 py-2 md:py-3 rounded-md text-white flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all"
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? "Joining..." : "Join Our Waitlist"}
+                                <motion.span
+                                    animate={{ x: [0, 5, 0] }}
+                                    transition={{ repeat: Infinity, duration: 1.5 }}
+                                >
+                                    <FaArrowRight />
+                                </motion.span>
+                            </motion.button>
+                        </motion.div>
+
+
+                        {message && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: 20 }}
+                                transition={{ duration: 0.5 }}
+                                className={`mt-4 text-center ${success ? 'text-green-500' : 'text-red-500'}`}
+                            >
+                                {message}
+                            </motion.div>
+                        )}
                     </motion.div>
-                </motion.div>
+                </form>
             </div>
         </motion.section>
     )

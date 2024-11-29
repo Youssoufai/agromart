@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 
-let client;
+let client: MongoClient | null = null;
 
 try {
     if (!process.env.MONGODB_URI) {
