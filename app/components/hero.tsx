@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
+import Image from 'next/image'; // Import the Image component
 
 const Hero = () => {
     return (
@@ -69,21 +70,23 @@ const Hero = () => {
                 transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
                 className="w-full md:w-1/2 mt-8 md:mt-0"
             >
-                <motion.img
+                <motion.div
                     initial={{ scale: 1.1, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.7, delay: 0.4 }}
-                    src="hero.webp"
-                    className="rounded-lg shadow-2xl w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover"
-                    alt="Farmers working in field"
-                    whileHover={{
-                        scale: 1.02,
-                        transition: { duration: 0.3 }
-                    }}
-                />
+                >
+                    <Image
+                        src="/hero.webp" // Use the correct path to your image
+                        className="rounded-lg shadow-2xl w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover"
+                        alt="Farmers working in field" // Ensure this is descriptive
+                        width={500} // Set appropriate width
+                        height={300} // Set appropriate height
+                        priority // Optional: Use priority loading for the hero image
+                    />
+                </motion.div>
             </motion.div>
         </section>
-    )
+    );
 }
 
 export default Hero;

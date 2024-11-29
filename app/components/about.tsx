@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
+import Image from 'next/image'; // Import the Image component
 
 const About = () => {
     const imageVariants = {
@@ -54,12 +55,11 @@ const About = () => {
                         transition={{ duration: 0.7, delay: 0.4 }}
                         className="text-sm md:text-base lg:text-lg text-center md:text-left leading-relaxed"
                     >
-                        Our mission at the AgroMart is to revolutionize agriculture in Nigeria and across Africa by empowering farmers, making food more affordable and healthier, and connecting businesses with reliable sources of raw materials. By leveraging technology, we aim to boost agricultural productivity, reduce food waste, and create sustainable supply chains. This will not only enhance the livelihoods of farmers but also support economic growth, ensure food security, and contribute to a healthier, more prosperous continent.
+                        Our mission at AgroMart is to revolutionize agriculture in Nigeria and across Africa by empowering farmers, making food more affordable and healthier, and connecting businesses with reliable sources of raw materials. By leveraging technology, we aim to boost agricultural productivity, reduce food waste, and create sustainable supply chains. This will not only enhance the livelihoods of farmers but also support economic growth, ensure food security, and contribute to a healthier, more prosperous continent.
                     </motion.p>
                 </motion.div>
 
                 <div className="w-full md:w-1/2 relative h-[400px] md:h-[600px]">
-
                     <motion.div
                         initial={{ opacity: 0, y: -50 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -67,18 +67,22 @@ const About = () => {
                         transition={{ duration: 0.7, delay: 0.2 }}
                         className="absolute top-0 left-0 md:left-1/4"
                     >
-                        <motion.img
+                        <motion.div
                             variants={imageVariants}
                             initial="hidden"
                             whileInView="visible"
                             whileHover="hover"
                             viewport={{ once: true }}
-                            src="ai-gen1.webp"
-                            className="rounded-full object-cover w-[150px] h-[150px] md:w-[200px] md:h-[200px]"
-                            alt="Agricultural Innovation"
-                        />
+                        >
+                            <Image
+                                src="/ai-gen1.webp" // Use the correct path to your image
+                                className="rounded-full object-cover w-[150px] h-[150px] md:w-[200px] md:h-[200px]"
+                                alt="Agricultural Innovation" // Ensure this is descriptive
+                                width={200} // Set appropriate width
+                                height={200} // Set appropriate height
+                            />
+                        </motion.div>
                     </motion.div>
-
 
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
@@ -87,18 +91,22 @@ const About = () => {
                         transition={{ duration: 0.7, delay: 0.4 }}
                         className="absolute top-1/3 right-0"
                     >
-                        <motion.img
+                        <motion.div
                             variants={imageVariants}
                             initial="hidden"
                             whileInView="visible"
                             whileHover="hover"
                             viewport={{ once: true }}
-                            src="company.webp"
-                            className="rounded-full object-cover w-[150px] h-[150px] md:w-[200px] md:h-[200px]"
-                            alt="Company"
-                        />
+                        >
+                            <Image
+                                src="/company.webp" // Use the correct path to your image
+                                className="rounded-full object-cover w-[150px] h-[150px] md:w-[200px] md:h-[200px]"
+                                alt="Company" // Ensure this is descriptive
+                                width={200} // Set appropriate width
+                                height={200} // Set appropriate height
+                            />
+                        </motion.div>
                     </motion.div>
-
 
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
@@ -107,21 +115,26 @@ const About = () => {
                         transition={{ duration: 0.7, delay: 0.6 }}
                         className="absolute bottom-0 left-0 md:left-1/4"
                     >
-                        <motion.img
+                        <motion.div
                             variants={imageVariants}
                             initial="hidden"
                             whileInView="visible"
                             whileHover="hover"
                             viewport={{ once: true }}
-                            src="about.webp"
-                            className="rounded-full object-cover w-[150px] h-[150px] md:w-[200px] md:h-[200px]"
-                            alt="About Us"
-                        />
+                        >
+                            <Image
+                                src="/about.webp" // Use the correct path to your image
+                                className="rounded-full object-cover w-[150px] h-[150px] md:w-[200px] md:h-[200px]"
+                                alt="About Us" // Ensure this is descriptive
+                                width={200} // Set appropriate width
+                                height={200} // Set appropriate height
+                            />
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 export default About;

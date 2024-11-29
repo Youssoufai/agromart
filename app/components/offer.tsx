@@ -1,11 +1,18 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
 
 const Offer = () => {
     const offers = [
         {
             icon: (
-                <svg className="w-10 h-10 md:w-12 md:h-12 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                    className="w-10 h-10 md:w-12 md:h-12 mx-auto"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-label="Empowering Farmers Icon" // Added accessibility label
+                >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h11M9 21V3m0 0l-4 4m4-4l4 4" />
                 </svg>
             ),
@@ -14,7 +21,14 @@ const Offer = () => {
         },
         {
             icon: (
-                <svg className="w-10 h-10 md:w-12 md:h-12 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                    className="w-10 h-10 md:w-12 md:h-12 mx-auto"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-label="Reliable Supply Chains Icon" // Added accessibility label
+                >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 20v-6m0-6v-4m0 4l-6 6m6-6l6 6" />
                 </svg>
             ),
@@ -23,7 +37,14 @@ const Offer = () => {
         },
         {
             icon: (
-                <svg className="w-10 h-10 md:w-12 md:h-12 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                    className="w-10 h-10 md:w-12 md:h-12 mx-auto"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-label="Affordable Food Icon" // Added accessibility label
+                >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h11M9 21V3m0 0l-4 4m4-4l4 4" />
                 </svg>
             ),
@@ -132,7 +153,7 @@ const Offer = () => {
                 </motion.div>
             </div>
         </section>
-    )
+    );
 }
 
 export default Offer;

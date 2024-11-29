@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from 'react';
 
@@ -56,6 +56,7 @@ const Navbar = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="font-bold text-xl hover:text-color3"
+                        aria-label="Login"
                     >
                         Login
                     </motion.button>
@@ -66,6 +67,7 @@ const Navbar = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="py-2 px-8 bg-color3 rounded-lg text-white hover:bg-opacity-90"
+                        aria-label="Sign Up"
                     >
                         Sign Up
                     </motion.button>
@@ -78,6 +80,7 @@ const Navbar = () => {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="md:hidden"
                     onClick={toggleMenu}
+                    aria-label="Toggle Menu"
                 >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         {isOpen ? (
@@ -118,6 +121,7 @@ const Navbar = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.3, delay: 0.3 }}
                                 className="block w-full text-left font-bold hover:text-color3"
+                                aria-label="Mobile Login"
                             >
                                 Login
                             </motion.button>
@@ -126,6 +130,7 @@ const Navbar = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.3, delay: 0.4 }}
                                 className="block w-full py-2 px-8 bg-color3 rounded-lg text-white hover:bg-opacity-90"
+                                aria-label="Mobile Sign Up"
                             >
                                 Sign Up
                             </motion.button>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
 import { AiFillTikTok } from "react-icons/ai";
 import { BsInstagram } from "react-icons/bs";
@@ -8,9 +8,9 @@ import { FaXTwitter } from "react-icons/fa6";
 const Footer = () => {
     const navLinks = ["How it Works", "Blog", "Contact"];
     const socialIcons = [
-        { Icon: BsInstagram, href: "#" },
-        { Icon: FaXTwitter, href: "#" },
-        { Icon: AiFillTikTok, href: "#" }
+        { Icon: BsInstagram, href: "#", label: "Instagram" },
+        { Icon: FaXTwitter, href: "#", label: "Twitter" },
+        { Icon: AiFillTikTok, href: "#", label: "TikTok" }
     ];
 
     const containerVariants = {
@@ -87,6 +87,7 @@ const Footer = () => {
                                 type="email"
                                 placeholder="Enter your email"
                                 className="w-full pl-10 pr-4 py-3 border placeholder:text-gray-400 rounded-lg text-color focus:outline-color3 focus:ring-2 focus:ring-color3"
+                                required // Added required attribute for validation
                             />
                         </section>
                     </motion.div>
@@ -105,6 +106,7 @@ const Footer = () => {
                     </motion.button>
                 </motion.div>
             </motion.section>
+
             <motion.section
                 variants={containerVariants}
                 initial="hidden"
@@ -141,7 +143,7 @@ const Footer = () => {
                         variants={itemVariants}
                         className="flex items-center gap-4 text-gray-600 order-2 md:order-3"
                     >
-                        {socialIcons.map(({ Icon }, index) => (
+                        {socialIcons.map(({ Icon, label }, index) => (
                             <motion.div
                                 key={index}
                                 whileHover={{
@@ -150,6 +152,7 @@ const Footer = () => {
                                     rotate: [0, -10, 10, -10, 0]
                                 }}
                                 transition={{ duration: 0.3 }}
+                                aria-label={`Follow us on ${label}`} // Use the label from the mapping
                             >
                                 <Icon className="w-5 h-5 cursor-pointer" />
                             </motion.div>
