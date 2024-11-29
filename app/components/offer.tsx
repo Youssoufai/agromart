@@ -10,8 +10,8 @@ const Offer = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h11M9 21V3m0 0l-4 4m4-4l4 4" />
                 </svg>
             ),
-            title: "Efficient Logistics",
-            description: "Seamless transportation ensuring timely and cost-effective delivery."
+            title: "Empowering Farmers: Your Gateway to Bigger Markets and Better Profits",
+            description: "Farmers, this is your chance to shine! Our platform connects you directly to consumers and businesses eager for fresh, quality produce. By eliminating middlemen, you get fair prices for your hard work, ensuring higher earnings and a steady income stream. Capitalize on this opportunity to expand your reach, build long-term partnerships, and grow your farming enterprise sustainably."
         },
         {
             icon: (
@@ -19,8 +19,8 @@ const Offer = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 20v-6m0-6v-4m0 4l-6 6m6-6l6 6" />
                 </svg>
             ),
-            title: "Market Access",
-            description: "Connect farmers to larger markets for better pricing opportunities."
+            title: "Reliable Supply Chains: The Key to Success for Companies",
+            description: "Businesses, say goodbye to inconsistent supplies and soaring costs. Our platform provides access to a reliable network of farmers offering high-quality raw materials at affordable rates. This ensures your operations run smoothly, reduces production costs, and strengthens your bottom line. Partner with us to secure a dependable supply chain that supports your growth and keeps your customers satisfied."
         },
         {
             icon: (
@@ -28,8 +28,8 @@ const Offer = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h11M9 21V3m0 0l-4 4m4-4l4 4" />
                 </svg>
             ),
-            title: "Reliable Supplies",
-            description: "Ensure high-quality raw materials sourced directly from trusted farmers."
+            title: "Affordable Food for Healthier Living: A Win for Consumers",
+            description: "Consumers, it’s time to enjoy fresh, healthy food without worrying about the price tag. Through our platform, you get direct access to affordable, farm-fresh produce, eliminating extra costs and ensuring unbeatable quality. Whether you're shopping for your family or sourcing for your business, our focus on affordability and quality guarantees you’re always getting the best value for your money."
         }
     ];
 

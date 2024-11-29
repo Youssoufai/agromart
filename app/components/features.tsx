@@ -10,7 +10,7 @@ const Features = () => {
         {
             icon: <CiDeliveryTruck className="text-6xl md:text-7xl lg:text-8xl text-color3" />,
             title: "Efficient Logistics",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, laborum. Numquam dolorem magni, in enim iusto nam dignissimos officiis corrupti doloribus, iste nostrum harum a cupiditate consequuntur eos atque? Iure?"
+            description: "Our efficient logistics system is designed to minimize delays and ensure timely delivery of fresh produce and raw materials. By leveraging technology and strategic partnerships, we streamline transportation routes and manage inventory effectively, reducing waste and maintaining the highest quality standards. This ensures that every product reaches its destination quickly and in perfect condition."
         },
         {
             icon: <img
@@ -18,8 +18,8 @@ const Features = () => {
                 className="w-[72px] h-[72px] md:w-[84px] md:h-[84px] lg:w-[96px] lg:h-[96px] object-cover"
                 alt="Affordable Food"
             />,
-            title: "Affordable Healthier Food",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, laborum. Numquam dolorem magni, in enim iusto nam dignissimos officiis corrupti doloribus, iste nostrum harum a cupiditate consequuntur eos atque? Iure?"
+            title: "Fresh, Healthy, and Affordable: Redefining Food Access for All",
+            description: "We believe everyone deserves access to fresh and nutritious food without breaking the bank. By cutting out unnecessary middlemen and connecting directly with farmers, we reduce costs and pass the savings on to you. Our platform ensures that high-quality, farm-fresh produce and raw materials are available at unbeatable prices, making healthy living affordable for families and businesses alike."
         },
         {
             icon: <img
@@ -28,7 +28,7 @@ const Features = () => {
                 alt="Supply Chain"
             />,
             title: "Reliable Supply",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, laborum. Numquam dolorem magni, in enim iusto nam dignissimos officiis corrupti doloribus, iste nostrum harum a cupiditate consequuntur eos atque? Iure?"
+            description: "Reliability is at the core of our operations. We provide a dependable supply chain that connects businesses with trusted farmers and producers, ensuring consistent access to high-quality raw materials. Whether you're a consumer or a business, you can count on us to deliver the products you need, when you need them, without interruptions."
         }
     ];
 
