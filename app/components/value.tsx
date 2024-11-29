@@ -43,7 +43,7 @@ const Value = () => {
             phoneInput.value = '';
             categoryInput.value = '';
         } catch (error) {
-            console.error("Error joining the waitlist:", error);
+            console.error("Error joining the waitlist:", error); // Log the error
             setSuccess(false);
             setMessage("Failed to join the waitlist. Please try again.");
         } finally {
@@ -55,7 +55,6 @@ const Value = () => {
             setSuccess(false);
         }, 3000);
     }
-
     const formFields = [
         {
             icon: <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-color3" />,
