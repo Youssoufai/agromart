@@ -1,5 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { useState } from 'react';
 
 const Navbar = () => {
@@ -16,6 +17,7 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
             className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm"
         >
+
             <div className="flex justify-between items-center font-parkinsans px-4 md:px-20 py-4 md:py-8">
                 {/* Logo */}
                 <motion.div
@@ -60,17 +62,12 @@ const Navbar = () => {
                     >
                         Login
                     </motion.button>
-                    <motion.button
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.7 }}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="py-2 px-8 bg-color3 rounded-lg text-white hover:bg-opacity-90"
-                        aria-label="Sign Up"
-                    >
+
+                    <Link href="/sign-up" passHref>
+
                         Sign Up
-                    </motion.button>
+
+                    </Link>
                 </div>
 
                 {/* Hamburger Menu Button */}
