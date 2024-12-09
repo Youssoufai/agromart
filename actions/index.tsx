@@ -1,4 +1,4 @@
-'use server';
+/* 'use server';
 import client from "@/db";
 import { revalidatePath } from "next/cache";
 interface ListData {
@@ -22,4 +22,4 @@ export async function createList(data: ListData) { // Specify the type for data
     } catch (error) {
         console.error(error);
     }
-}
+} */

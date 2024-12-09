@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+/* import { MongoClient } from "mongodb";
 
 let client: MongoClient | null = null;
 
@@ -11,4 +11,4 @@ try {
 } catch (error) {
     console.log(error);
 }
-export default client;
+export default client; */
