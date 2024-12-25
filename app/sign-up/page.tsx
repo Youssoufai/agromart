@@ -18,10 +18,10 @@ const page = () => {
                     <h1 className="text-center text-4xl">What are you?</h1>
                     <h2 className="text-center">Find where you fit and how we can help you thrive.</h2>
                 </div>
-                <section className="p-8 flex">
+                <section className="p-8 flex gap-3">
                     {/* Farmer Option */}
                     <div className={`cursor-pointer border ${selectedFarmer === 'farmer' ? 'border-color3' : ''} rounded-md bg-light-green hover:bg-light-green`} onClick={() => handleRadioChange('farmer')}>
-                        <label htmlFor="farmer" className="flex items-center">
+                        <label htmlFor="farmer" className="flex flex-col items-center p-12">
                             <PiFarm className="text-6xl text-color3" />
                             <input type="radio" name="role" id="farmer" className="hover:cursor-pointer" onChange={() => handleRadioChange('farmer')} />
                             <h2 className="text-3xl">Farmer</h2>
@@ -31,7 +31,7 @@ const page = () => {
 
                     {/* Other Options */}
                     <div className={`cursor-pointer border ${selectedFarmer === 'gardener' ? 'border-color3' : ''} rounded-md bg-light-green hover:bg-light-green`} onClick={() => handleRadioChange('gardener')}>
-                        <label htmlFor="gardener" className="flex flex-col items-center">
+                        <label htmlFor="gardener" className="flex flex-col items-center p-12">
                             <PiFarm className="text-6xl text-color3" />
                             <input type="radio" name="role" id="gardener" className="hover:cursor-pointer" onChange={() => handleRadioChange('gardener')} />
                             <h2 className="text-3xl">Gardener</h2>
@@ -40,7 +40,7 @@ const page = () => {
                     </div>
 
                     <div className={`cursor-pointer border ${selectedFarmer === 'rancher' ? 'border-color3' : ''} rounded-md bg-light-green hover:bg-light-green`} onClick={() => handleRadioChange('rancher')}>
-                        <label htmlFor="rancher" className="flex flex-col items-center">
+                        <label htmlFor="rancher" className="flex flex-col items-center p-12">
                             <PiFarm className="text-6xl text-color3" />
                             <input type="radio" name="role" id="rancher" className="hover:cursor-pointer" onChange={() => handleRadioChange('rancher')} />
                             <h2 className="text-3xl">Rancher</h2>
